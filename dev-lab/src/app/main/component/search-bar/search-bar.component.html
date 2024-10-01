@@ -1,0 +1,18 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput
+           aria-label="State"
+           [matAutocomplete]="auto"
+           [formControl]="stateCtrl"
+           placeholder="Search"
+    >
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (article of filteredArticles | async; track article.name) {
+        <mat-option [routerLink]="article.url">
+          <mat-icon [svgIcon]="article.technology"/>
+          <div>{{article.name}}</div>
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

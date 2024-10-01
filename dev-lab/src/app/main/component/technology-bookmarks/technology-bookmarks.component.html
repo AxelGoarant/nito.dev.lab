@@ -1,0 +1,17 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>bookmark_add</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  @for (technology of unselectedTechnologyList; track $index) {
+    <button mat-icon-button (click)="addTechnology(technology)">
+      <mat-icon [svgIcon]="technology"/>
+    </button>
+  }
+</mat-menu>
+@for (technology of selectedTechnologyList(); track $index) {
+  <button mat-icon-button (click)="removeTechnology(technology)" (mouseenter)="icon.svgIcon = 'bookmark_remove'"
+          (mouseleave)="icon.svgIcon = technology">
+    <mat-icon #icon [svgIcon]="technology">remove</mat-icon>
+  </button>
+}
+
