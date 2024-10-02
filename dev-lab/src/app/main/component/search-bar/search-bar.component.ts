@@ -47,7 +47,13 @@ export class SearchBarComponent {
       name: 'HTML Article',
       technology: Technology.HTML,
       keywords: ["html", "tomate"],
-      url: 'SampleArticleHtmlComponent'
+      url: 'SampleArticleHtmlComponent',
+    },
+    {
+      name: '<a> : The Anchor element',
+      technology: Technology.HTML,
+      keywords: ["html", "tomate"],
+      url: 'ATheAnchorElementComponent'
     },
     {
       name: 'CSS Article',

@@ -1,0 +1,9 @@
+<div class="pre-container">
+  <!-- The button for copying the content -->
+  <button mat-icon-button class="copy-btn" (click)="copyToClipboard(code)">
+    <mat-icon>content_copy</mat-icon>
+  </button>
+
+  <!-- The <pre> element for displaying the code -->
+  <pre><code>{{ code }}</code></pre>
+</div>

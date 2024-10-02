@@ -1,0 +1,31 @@
+<div class="code-playground">
+  <!-- Left: Code Display with Tabs -->
+  <div class="code-tabs">
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="HTML">
+        <ng-template matTabContent>
+          <ndl-code-section [code]="htmlCode"/>
+        </ng-template>
+      </mat-tab>
+      @if (cssCode) {
+        <mat-tab label="CSS">
+          <ng-template matTabContent>
+            <ndl-code-section [code]="cssCode"/>
+          </ng-template>
+        </mat-tab>
+      }
+      @if (jsCode) {
+        <mat-tab label="TS">
+          <ng-template matTabContent>
+            <ndl-code-section [code]="jsCode"/>
+          </ng-template>
+        </mat-tab>
+      }
+    </mat-tab-group>
+  </div>
+
+  <!-- Right: Result Preview -->
+  <div class="result-preview">
+    <iframe #iframePreview></iframe>
+  </div>
+</div>
