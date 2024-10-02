@@ -1,6 +1,8 @@
-<button mat-icon-button [matMenuTriggerFor]="menu">
-  <mat-icon>bookmark_add</mat-icon>
-</button>
+@if (unselectedTechnologyList.length > 0) {
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>bookmark_add</mat-icon>
+  </button>
+}
 <mat-menu #menu="matMenu">
   @for (technology of unselectedTechnologyList; track $index) {
     <button mat-icon-button (click)="addTechnology(technology)">
