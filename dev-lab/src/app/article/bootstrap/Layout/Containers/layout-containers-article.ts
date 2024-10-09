@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ArticleComponent} from "../../../common/article/article.component";
 import {CodePlaygroundComponent} from "../../../common/code-playground/code-playground.component";
 import {CodeSectionComponent} from "../../../common/code-section/code-section.component";
@@ -25,7 +25,7 @@ export class LayoutContainersArticle {
     "<div class=\"container-xl\">100% wide until extra large breakpoint</div>\n" +
     "<div class=\"container-xxl\">100% wide until extra extra large breakpoint</div>";
 
-code003 = "<div class=\"container-fluid\">\n" +
-  "  ...\n" +
-  "</div>";
+  code003 = "<div class=\"container-fluid\">\n" +
+    "  ...\n" +
+    "</div>";
 }

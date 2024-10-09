@@ -10,13 +10,7 @@ import {combineLatestWith, map, Observable, startWith} from "rxjs";
 import {RouterLink} from "@angular/router";
 import {SELECTED_TECHNOLOGIES_TOKEN} from "../../../app.config";
 import {toObservable} from "@angular/core/rxjs-interop";
-
-export interface Article {
-  technology: Technology;
-  name: string;
-  keywords: string[];
-  url: string;
-}
+import {ArticleData} from "../../../article/common/article-data.model";
 
 @Component({
   selector: 'ndl-search-bar',
@@ -40,58 +34,9 @@ export class SearchBarComponent {
   protected readonly selectedTechnologyList = inject(SELECTED_TECHNOLOGIES_TOKEN).asReadonly();
 
   stateCtrl = new FormControl('');
-  filteredArticles: Observable<Article[]>;
+  filteredArticles: Observable<ArticleData[]>;
 
-  articles: Article[] = [
-    {
-      name: 'HTML Article',
-      technology: Technology.HTML,
-      keywords: ["html", "tomate"],
-      url: 'SampleArticleHtmlComponent',
-    },
-    {
-      name: '<a> : The Anchor element',
-      technology: Technology.HTML,
-      keywords: ["html", "tomate"],
-      url: 'ATheAnchorElementComponent'
-    },
-    {
-      name: 'CSS Article',
-      technology: Technology.CSS,
-      keywords: ["css", "tomate"],
-      url: 'SampleArticleCssComponent'
-    },
-    {
-      name: 'JavaScript Article',
-      technology: Technology.JavaScript,
-      keywords: ["javascript", "tomate"],
-      url: 'SampleArticleJavascriptComponent'
-    },
-    {
-      name: 'TypeScript Article',
-      technology: Technology.TypeScript,
-      keywords: ["typescript", "tomate"],
-      url: 'SampleArticleTypescriptComponent'
-    },
-    {
-      name: 'Layout : Containers',
-      technology: Technology.Bootstrap,
-      keywords: ["bootstrap", "tomate"],
-      url: 'bootstrap/layout/containers'
-    },
-    {
-      name: 'Angular Article',
-      technology: Technology.Angular,
-      keywords: ["angular", "tomate"],
-      url: 'SampleArticleAngularComponent'
-    },
-    {
-      name: 'rxjs Article',
-      technology: Technology.rxjs,
-      keywords: ["rxjs", "tomate"],
-      url: 'SampleArticleRxjsComponent'
-    },
-  ];
+  articles: ArticleData[] = []; // TODO : import all articles data
 
   constructor() {
     this.filteredArticles =  this.stateCtrl.valueChanges.pipe(
@@ -102,7 +47,7 @@ export class SearchBarComponent {
 
   }
 
-  private _filterArticles(value: string | null, technologies : Technology[]): Article[] {
+  private _filterArticles(value: string | null, technologies : Technology[]): ArticleData[] {
     const filterValue = value?.toLowerCase() ?? null;
 
     let _filteredArticles = this.articles;
@@ -115,19 +60,19 @@ export class SearchBarComponent {
     return _filteredArticles;
   }
 
-  private _filterByKeywords(articles: Article [], value: string): Article[] {
-    return articles.filter(article => article.keywords.find(keyword => keyword.toLowerCase().includes(value)));
+  private _filterByKeywords(articles: ArticleData [], value: string): ArticleData[] {
+    return articles.filter(article => article.keywords?.find(keyword => keyword.toLowerCase().includes(value)));
   }
 
-  private _filterByTechnologies(articles: Article [], technologies: Technology[]): Article[] {
+  private _filterByTechnologies(articles: ArticleData [], technologies: Technology[]): ArticleData[] {
     return articles.filter(article => technologies.find(technology => technology === article.technology));
   }
 
-  private _sortByPertinence(articles: Article [], value: string): Article[] {
+  private _sortByPertinence(articles: ArticleData [], value: string): ArticleData[] {
     return articles;
   }
 
-  private _limitResultsSize(articles: Article []): Article[] {
+  private _limitResultsSize(articles: ArticleData []): ArticleData[] {
     return articles.slice(0, 5);
   }
 }
