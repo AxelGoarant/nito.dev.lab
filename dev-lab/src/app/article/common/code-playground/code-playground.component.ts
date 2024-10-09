@@ -3,7 +3,7 @@ import {NgIf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatTab, MatTabBody, MatTabContent, MatTabGroup} from "@angular/material/tabs";
-import {CodeSectionComponent} from "./code-section/code-section.component";
+import {CodeSectionComponent} from "../code-section/code-section.component";
 
 @Component({
   selector: 'ndl-code-playground',

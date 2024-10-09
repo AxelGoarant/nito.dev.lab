@@ -10,8 +10,8 @@ import {
   SampleArticleTypescriptComponent
 } from "./article/typescript/sample-article-typescript/sample-article-typescript.component";
 import {
-  SampleArticleBootstrapComponent
-} from "./article/bootstrap/sample-article-bootstrap/sample-article-bootstrap.component";
+  LayoutContainersArticle
+} from "./article/bootstrap/Layout/Containers/layout-containers-article";
 import {SampleArticleAngularComponent} from "./article/angular/sample-article-angular/sample-article-angular.component";
 import {SampleArticleRxjsComponent} from "./article/rxjs/sample-article-rxjs/sample-article-rxjs.component";
 
@@ -20,7 +20,7 @@ export const routes: Routes = [
   {path: 'SampleArticleCssComponent', component: SampleArticleCssComponent},
   {path: 'SampleArticleJavascriptComponent', component: SampleArticleJavascriptComponent},
   {path: 'SampleArticleTypescriptComponent', component: SampleArticleTypescriptComponent},
-  {path: 'SampleArticleBootstrapComponent', component: SampleArticleBootstrapComponent},
+  {path: 'bootstrap/layout/containers', component: LayoutContainersArticle},
   {path: 'SampleArticleAngularComponent', component: SampleArticleAngularComponent},
   {path: 'SampleArticleRxjsComponent', component: SampleArticleRxjsComponent},
   {path: 'ATheAnchorElementComponent', component: ATheAnchorElementComponent},

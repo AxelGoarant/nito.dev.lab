@@ -13,14 +13,12 @@
 }
 
 pre {
-  padding: 15px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow-x: auto;
   font-family: monospace;
+  padding: 15px 65px 15px 15px;
 }
 
-code {
-  padding-right: 40px;
-}
+
