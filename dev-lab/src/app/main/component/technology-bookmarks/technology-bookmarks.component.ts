@@ -8,7 +8,7 @@ import {MatButtonToggle} from "@angular/material/button-toggle";
 import {Dir} from "@angular/cdk/bidi";
 import {isPlatformBrowser, KeyValuePipe} from "@angular/common";
 import {Technology, TechnologyList} from "../../model/technology.model";
-import {SELECTED_TECHNOLOGIES_TOKEN} from "../../../app.config";
+import {SELECTED_TECHNOLOGIES} from "../../../app.config";
 
 @Component({
   selector: 'ndl-technology-bookmarks',
@@ -25,7 +25,7 @@ import {SELECTED_TECHNOLOGIES_TOKEN} from "../../../app.config";
   styleUrl: './technology-bookmarks.component.css',
 })
 export class TechnologyBookmarksComponent implements OnInit {
-  protected readonly selectedTechnologyList = inject(SELECTED_TECHNOLOGIES_TOKEN);
+  protected readonly selectedTechnologyList = inject(SELECTED_TECHNOLOGIES);
 
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly storageName = "technology";

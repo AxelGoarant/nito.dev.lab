@@ -10,8 +10,9 @@ import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideHttpClient, withFetch} from "@angular/common/http";
 import {Technology} from "./main/model/technology.model";
+import {ArticleMetaData} from "./article/common/article-meta-data.model";
 
-export const SELECTED_TECHNOLOGIES_TOKEN = new InjectionToken<WritableSignal<Technology[]>>('SELECTED_TECHNOLOGIES_TOKEN');
+export const SELECTED_TECHNOLOGIES = new InjectionToken<WritableSignal<Technology[]>>('SELECTED_TECHNOLOGIES');
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch()),
-    {provide: SELECTED_TECHNOLOGIES_TOKEN, useValue: signal([])}
+    {provide: SELECTED_TECHNOLOGIES, useValue: signal([])},
   ],
 };

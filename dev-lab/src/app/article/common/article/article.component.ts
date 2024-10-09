@@ -8,8 +8,8 @@ import {CodePlaygroundComponent} from "../code-playground/code-playground.compon
     CodePlaygroundComponent
   ],
   templateUrl: './article.component.html',
-  styleUrl: './article.component.css'
+  styleUrl: './article.component.css',
 })
 export class ArticleComponent {
-  @Input({required:true}) title?: string;
+  @Input({required: true}) title?: string;
 }
