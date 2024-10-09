@@ -5,4 +5,5 @@
   height: 100%;              /* Make the container take all available vertical space */
   width: 100%;                /* Make the container take all available horizontal space */
   box-sizing: border-box;      /* Include padding/border in the element’s total width/height */
+  padding: 35px 350px;
 }

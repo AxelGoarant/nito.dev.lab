@@ -74,10 +74,10 @@ export class SearchBarComponent {
       url: 'SampleArticleTypescriptComponent'
     },
     {
-      name: 'Bootstrap Article',
+      name: 'Layout : Containers',
       technology: Technology.Bootstrap,
       keywords: ["bootstrap", "tomate"],
-      url: 'SampleArticleBootstrapComponent'
+      url: 'bootstrap/layout/containers'
     },
     {
       name: 'Angular Article',
