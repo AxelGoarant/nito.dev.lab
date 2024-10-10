@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sample-article-rxjs',
+  selector: 'app-sample-article-template-rxjs',
   standalone: true,
   imports: [],
   templateUrl: './sample-article-rxjs.component.html',

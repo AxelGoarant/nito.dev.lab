@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sample-article-angular',
+  selector: 'app-sample-article-template-angular',
   standalone: true,
   imports: [],
   templateUrl: './sample-article-angular.component.html',

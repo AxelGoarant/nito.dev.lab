@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sample-article-typescript',
+  selector: 'app-sample-article-template-typescript',
   standalone: true,
   imports: [],
   templateUrl: './sample-article-typescript.component.html',

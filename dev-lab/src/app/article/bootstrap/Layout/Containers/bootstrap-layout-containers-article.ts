@@ -1,20 +1,25 @@
 import {Component} from '@angular/core';
-import {ArticleComponent} from "../../../common/article/article.component";
+import {ArticleTemplateComponent} from "../../../common/article-template/article-template.component";
 import {CodePlaygroundComponent} from "../../../common/code-playground/code-playground.component";
 import {CodeSectionComponent} from "../../../common/code-section/code-section.component";
+import {Article} from "../../../common/article";
+import {ArticleMetaData} from "../../../common/article-meta-data.model";
 
 @Component({
   selector: 'app-Containers',
   standalone: true,
   imports: [
-    ArticleComponent,
+    ArticleTemplateComponent,
     CodePlaygroundComponent,
     CodeSectionComponent
   ],
-  templateUrl: './layout-containers-article.html',
-  styleUrl: './layout-containers-article.css'
+  templateUrl: './bootstrap-layout-containers-article.html',
+  styleUrl: './bootstrap-layout-containers-article.css'
 })
-export class LayoutContainersArticle {
+export class BootstrapLayoutContainersArticle implements ArticleMetaData {
+  title = 'Layout : Containers';
+  url = ['containers'];
+
   code001 = "<div class=\"container\">\n" +
     "  <!-- Content here -->\n" +
     "</div>";

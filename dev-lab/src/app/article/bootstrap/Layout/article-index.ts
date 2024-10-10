@@ -1,6 +1,6 @@
-import {Container} from "./Containers/article-index";
-import {retrieveArticleDataFromWithGroup} from "../../common/article-utils";
+import {retrieveArticleDataFromComponentWithGroup} from "../../common/article-utils";
+import {BootstrapLayoutContainersArticle} from "./Containers/bootstrap-layout-containers-article";
 
-export const Layout = retrieveArticleDataFromWithGroup([
-  Container
+export const BootStrapLayoutArticles = retrieveArticleDataFromComponentWithGroup([
+  BootstrapLayoutContainersArticle
 ], 'layout');

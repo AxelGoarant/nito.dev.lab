@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sample-article-javascript',
+  selector: 'app-sample-article-template-javascript',
   standalone: true,
   imports: [],
   templateUrl: './sample-article-javascript.component.html',

@@ -1,19 +1,19 @@
-import {ArticleData} from "./article-data.model";
 import {Technology} from "../../main/model/technology.model";
+import {Article} from "./article-meta-data.model";
+import {ComponentType} from "@angular/cdk/portal";
 
-export function retrieveArticleDataFromWithGroup(articleData: ArticleData[], group: string): ArticleData[] {
-  let result: ArticleData[] = [];
-  for (let article of articleData) {
-    article.url.push(group)
+export function retrieveArticleDataFromWithGroup(articleList: (ComponentType<any> extends )[], group: string): Article[] {
+  for (let article of articleList) {
+    article.url.unshift(group)
   }
-  return result;
+  return articleList.slice();
 }
 
-export function retrieveArticleDataFromWithTechnology(articleData: ArticleData[], technology: Technology): ArticleData[] {
-  let result: ArticleData[] = [];
-  for (let article of articleData) {
-    article.url.push(technology)
+export function retrieveArticleDataFromWithTechnology(articleList: Article[], technology: Technology): Article[] {
+  for (let article of articleList) {
+    article.url.unshift(technology)
     article.technology = technology;
   }
-  return result;
+  return articleList.slice();
 }
+

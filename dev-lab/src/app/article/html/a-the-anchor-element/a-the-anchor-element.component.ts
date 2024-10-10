@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import {ArticleComponent} from "../../common/article/article.component";
+import {ArticleTemplateComponent} from "../../common/article-template/article-template.component";
 import {CodePlaygroundComponent} from "../../common/code-playground/code-playground.component";
 
 @Component({
   selector: 'a-the-anchor-element',
   standalone: true,
   imports: [
-    ArticleComponent,
+    ArticleTemplateComponent,
     CodePlaygroundComponent
   ],
   templateUrl: './a-the-anchor-element.component.html',

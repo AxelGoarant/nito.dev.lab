@@ -1,4 +1,4 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {AsyncPipe} from "@angular/common";
 import {Technology} from "../../model/technology.model";
@@ -10,7 +10,8 @@ import {combineLatestWith, map, Observable, startWith} from "rxjs";
 import {RouterLink} from "@angular/router";
 import {SELECTED_TECHNOLOGIES_TOKEN} from "../../../app.config";
 import {toObservable} from "@angular/core/rxjs-interop";
-import {ArticleData} from "../../../article/common/article-data.model";
+import {Article} from "../../../article/common/article-meta-data.model";
+import {AllArticles} from "../../../article/article-index";
 
 @Component({
   selector: 'ndl-search-bar',
@@ -34,23 +35,21 @@ export class SearchBarComponent {
   protected readonly selectedTechnologyList = inject(SELECTED_TECHNOLOGIES_TOKEN).asReadonly();
 
   stateCtrl = new FormControl('');
-  filteredArticles: Observable<ArticleData[]>;
-
-  articles: ArticleData[] = []; // TODO : import all articles data
+  filteredArticles: Observable<Article[]>;
 
   constructor() {
-    this.filteredArticles =  this.stateCtrl.valueChanges.pipe(
+    this.filteredArticles = this.stateCtrl.valueChanges.pipe(
       startWith(''),
-      combineLatestWith(toObservable( this.selectedTechnologyList)),
+      combineLatestWith(toObservable(this.selectedTechnologyList)),
       map(([state, technologies]) => this._filterArticles(state, technologies)),
     );
 
   }
 
-  private _filterArticles(value: string | null, technologies : Technology[]): ArticleData[] {
+  private _filterArticles(value: string | null, technologies: Technology[]): Article[] {
     const filterValue = value?.toLowerCase() ?? null;
 
-    let _filteredArticles = this.articles;
+    let _filteredArticles = AllArticles;
     _filteredArticles = this._filterByTechnologies(_filteredArticles, technologies);
     if (filterValue && filterValue !== '') {
       _filteredArticles = this._filterByKeywords(_filteredArticles, filterValue);
@@ -60,19 +59,19 @@ export class SearchBarComponent {
     return _filteredArticles;
   }
 
-  private _filterByKeywords(articles: ArticleData [], value: string): ArticleData[] {
+  private _filterByKeywords(articles: Article [], value: string): Article[] {
     return articles.filter(article => article.keywords?.find(keyword => keyword.toLowerCase().includes(value)));
   }
 
-  private _filterByTechnologies(articles: ArticleData [], technologies: Technology[]): ArticleData[] {
+  private _filterByTechnologies(articles: Article [], technologies: Technology[]): Article[] {
     return articles.filter(article => technologies.find(technology => technology === article.technology));
   }
 
-  private _sortByPertinence(articles: ArticleData [], value: string): ArticleData[] {
+  private _sortByPertinence(articles: Article [], value: string): Article[] {
     return articles;
   }
 
-  private _limitResultsSize(articles: ArticleData []): ArticleData[] {
+  private _limitResultsSize(articles: Article []): Article[] {
     return articles.slice(0, 5);
   }
 }
