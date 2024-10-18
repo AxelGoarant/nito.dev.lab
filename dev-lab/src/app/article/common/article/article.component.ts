@@ -12,4 +12,5 @@ import {CodePlaygroundComponent} from "../code-playground/code-playground.compon
 })
 export class ArticleComponent {
   @Input({required: true}) title?: string;
+  @Input({required: true}) version?: string;
 }
